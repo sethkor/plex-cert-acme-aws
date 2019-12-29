@@ -222,7 +222,7 @@ You are now readdy to manually generate your cert.  Simply type :
 
 ```
 
-##Plex Network Settings
+## Plex Network Settings
 Finally update your network settings in the Plex server UI with the location of the certificate and the random password you generated plus your domain name:
 ![](PlexNetwork.png)
 
@@ -230,7 +230,7 @@ Notice how the certificate name location doesn't have the spaces escaped (no bac
 
 Save your settings and hit refresh in the browser, your certificate should now be working, check the padlock in the prowser.  If you run into any problems click "Trouble Shooting" in the side bar menu, download the logs and look at the server log to find out what went wrong.
 
-##Auto renew via crontab
+## Auto renew via crontab
 
 Create yourself a nightly job that checks to see if the certificate is about to expire and auto renews and reloads it when needed.  
 
