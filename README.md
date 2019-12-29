@@ -231,6 +231,7 @@ Notice how the certificate name location doesn't have the spaces escaped (no bac
 Save your settings and hit refresh in the browser, your certificate should now be working, check the padlock in the prowser.  If you run into any problems click "Trouble Shooting" in the side bar menu, download the logs and look at the server log to find out what went wrong.
 
 ##Auto renew via crontab
+
 Create yourself a nightly job that checks to see if the certificate is about to expire and auto renews and reloads it when needed.  
 
 ```
