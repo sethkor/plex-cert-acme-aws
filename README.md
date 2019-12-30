@@ -207,7 +207,7 @@ Create your self a script to renew the cert.  You'll need to paste your AWS acce
 export AWS_ACCESS_KEY_ID=<your AWS ACCESS KEY ID>
 export AWS_SECRET_ACCESS_KEY=<plex.blah.com AWS AWS_SECRET_ACCESS_KEY>
 
-/home/plex/.acme.sh/acme.sh --force --issue --dns dns_aws -d plex.blah.com --reloadcmd "/home/plex/reload-cert.sh"
+/home/plex/.acme.sh/acme.sh --force --issue --dns dns_aws -d plex.blah.com --reloadcmd "/home/plex/reload-cert.sh" --renew-hook "/home/plex/reload-cert.sh"
 ```
 
 Make sure you can execute this shell script by typing:
@@ -230,19 +230,8 @@ Notice how the certificate name location doesn't have the spaces escaped (no bac
 
 Save your settings and hit refresh in the browser, your certificate should now be working, check the padlock in the prowser.  If you run into any problems click "Trouble Shooting" in the side bar menu, download the logs and look at the server log to find out what went wrong.
 
-## Auto renew via crontab
-
-Create yourself a nightly job that checks to see if the certificate is about to expire and auto renews and reloads it when needed.  
-
-```
-crontab -e
-```
-Add this to your crontab (`crontab -e`), this will check your cert at 59 minutes past midnight everynight.
-
-```
-59 0 * * * "/home/plex/renew-cert.sh
-```
-
+## Auto renew is already enabled
+acme.sh should have already placed an entry in your crontrab to nightly check for renewals.  When it does renew your reload-cert.sh script you specified with the `--renew-hook` will execute automatically once a new certificate is issued.  Theres nothing else you need to do.
 
 
 
